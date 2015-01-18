@@ -1,4 +1,9 @@
-# Reproducible Research: Peer Assessment 1
+---
+title: "Reproducible Research: Peer Assessment 1"
+output: 
+  html_document:
+    keep_md: true
+---
 
 
 ## Loading and preprocessing the data
@@ -27,7 +32,7 @@ datStepsPerDay <- aggregate(steps ~ date, data=datRaw, sum, na.rm=TRUE)
 hist(datStepsPerDay$steps)
 ```
 
-![](./PA1_template_files/figure-html/unnamed-chunk-2-1.png) 
+![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2-1.png) 
 
 - Calculate and report the mean and median total number of steps taken per day
 
@@ -35,7 +40,7 @@ hist(datStepsPerDay$steps)
 StepsMean <- mean(datStepsPerDay$steps)
 StepsMedian <- median(datStepsPerDay$steps)
 ```
-The mean total number of steps taken per day is **1.0766189\times 10^{4}**.
+The mean total number of steps taken per day is **1.0766189 &times; 10<sup>4</sup>**.
 
 The median total number of steps taken per day is **10765**.
 
@@ -85,7 +90,7 @@ qplot <- qplot + labs(x = "the 5-minute interval", y="the average number of step
 qplot
 ```
 
-![](./PA1_template_files/figure-html/unnamed-chunk-4-1.png) 
+![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4-1.png) 
 
 -Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 
@@ -144,24 +149,24 @@ datStepsImputedPerDay <- aggregate(steps ~ date, data=datImput, sum, na.rm=TRUE)
 hist(datStepsImputedPerDay$steps)
 ```
 
-![](./PA1_template_files/figure-html/unnamed-chunk-8-1.png) 
+![plot of chunk unnamed-chunk-8](figure/unnamed-chunk-8-1.png) 
 
 ```r
 meanImputed <- mean(datStepsImputedPerDay$steps)
 medianImputed <- median(datStepsImputedPerDay$steps)
 ```
-The mean_imputed total number of steps taken per day is **1.0766189\times 10^{4}**.
+The mean_imputed total number of steps taken per day is **1.0766189 &times; 10<sup>4</sup>**.
 
-The median_imputed total number of steps taken per day is **1.0766189\times 10^{4}**.
+The median_imputed total number of steps taken per day is **1.0766189 &times; 10<sup>4</sup>**.
 
-The mean (1.0766189\times 10^{4}) is the same as the mean_imputed (1.0766189\times 10^{4}).
+The mean (1.0766189 &times; 10<sup>4</sup>) is the same as the mean_imputed (1.0766189 &times; 10<sup>4</sup>).
 
-The median (10765) differ from the median_imputed (1.0766189\times 10^{4})
+The median (10765) differ from the median_imputed (1.0766189 &times; 10<sup>4</sup>)
 
 The impact of imputing missing data is the median being changed.
 
 ## Are there differences in activity patterns between weekdays and weekends?
-1. Create a new factor variable in the dataset with two levels â€“ â€œweekdayâ€ and â€œweekendâ€ indicating whether a given date is a weekday or weekend day.
+1. Create a new factor variable in the dataset with two levels ¨C ¡°weekday¡± and ¡°weekend¡± indicating whether a given date is a weekday or weekend day.
 
 
 ```r
@@ -182,4 +187,4 @@ qplotWeek <- qplotWeek + labs(x = "the 5-minute interval", y="the average number
 qplotWeek + facet_grid(week ~ .)
 ```
 
-![](./PA1_template_files/figure-html/unnamed-chunk-10-1.png) 
+![plot of chunk unnamed-chunk-10](figure/unnamed-chunk-10-1.png) 
